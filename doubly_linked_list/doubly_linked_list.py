@@ -44,10 +44,13 @@ class DoublyLinkedList:
     return self.length
 
   def add_to_head(self, value): #replaces the head of the list with a new value that is passed in.
-    pass
+    self.head.insert_before(value)
+    self.head = self.head.prev
+    self.length += 1
 
   def remove_from_head(self): #removes the head node and returns the value stored in it.
-    pass
+    self.head.delete
+    self.length -= 1
 
   def add_to_tail(self, value): #replaces the tail of the list with a new value that is passed in.
     pass
