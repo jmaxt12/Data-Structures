@@ -57,24 +57,45 @@ class DoublyLinkedList:
   def remove_from_head(self): #removes the head node and returns the value stored in it.
         if not self.head:
             return None
-        head_value = self.head.value
+        headValue = self.head.value
         if self.head == self.tail:
             self.head = None
             self.tail = None
             self.length -= 1
-            return head_value
+            return headValue
         else:
-            new_head = self.head.next
+            newHead = self.head.next
             self.head.delete()
-            self.head = new_head
+            self.head = newHead
             self.length -= 1
-            return head_value
+            return headValue
 
   def add_to_tail(self, value): #replaces the tail of the list with a new value that is passed in.
-    pass
+    node = ListNode(value)
+    if self.head and self.tail:
+      self.tail.insert_after(value)
+      self.tail = self.tail.next
+      self.length += 1
+    else:
+      self.head = node
+      self.tail = node
+      self.length += 1
 
   def remove_from_tail(self): #removes the tail node and returns the value stored in it.
-    pass
+    if not self.head:
+      return None
+    tail_value = self.tail.value
+    if self.head == self.tail:
+      self.head = None
+      self.tail = None
+      self.length -= 1
+      return tail_value
+    else:
+      new_tail = self.tail.prev
+      self.tail.delete()
+      self.tail = new_tail
+      self.length -= 1
+      return tail_value
 
   def move_to_front(self, node): #takes a reference to a node in the list and moves it to the front of the list, shifting all other list nodes down. 
     pass
