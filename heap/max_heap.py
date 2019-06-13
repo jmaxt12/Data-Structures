@@ -4,18 +4,22 @@ class Heap:
 
   def insert(self, value):
     self.storage.append(value)
+    # I need to bubble up here
 
   def delete(self):
     pass
 
   def get_max(self):
-    pass
+    if self.storage:
+      return self.storage[0]
 
   def get_size(self):
     pass
 
   def _bubble_up(self, index):
-    pass
+    parent = (index - 1)//2
+    if index <= 0:
+      return
 
   def _sift_down(self, index):
     pass
