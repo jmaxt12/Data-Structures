@@ -31,6 +31,17 @@ class Heap:
 
 
   def _sift_down(self, index):
+    left = index * 2 + 1
+    right = index * 2 + 2
+    largest = index
+    if len(self.storage) > left and self.storage[largest] < self.storage[left]:
+      largest = left
+    if len(self.storage) > right and self.storage[largest] < self.storage[right]:
+      largest = right
+
+    if largest != index:
+      self._swap(index, largest)
+      self._sift_down(largest)
 
   def _swap(self, i, j):
     self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
