@@ -4,10 +4,18 @@ class Heap:
 
   def insert(self, value):
     self.storage.append(value)
-    # I need to bubble up here
+    self._bubble_up(len(self.storage) - 1)# I need to bubble up here
 
   def delete(self):
-    pass
+    if len(self.storage) > 1:
+      self._swap(0, len(self.storage) - 1)
+      max = self.storage.pop()
+      self._sift_down(0)
+    elif len(self.storage) == 1:
+      max = self.storage.pop()
+    else:
+      return False
+    return max
 
   def get_max(self):
     if self.storage:
@@ -21,8 +29,8 @@ class Heap:
     if index <= 0:
       return
 
+
   def _sift_down(self, index):
-    pass
 
   def _swap(self, i, j):
     self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
