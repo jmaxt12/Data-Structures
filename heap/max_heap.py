@@ -23,6 +23,9 @@ class Heap:
 
   def _sift_down(self, index):
     pass
+
+  def _swap(self, i, j):
+    self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
 '''
   * `insert` adds the input value into the heap; this method should ensure that the inserted value is in the correct spot in the heap
   * `delete` removes and returns the 'topmost' value from the heap; this method needs to ensure that the heap property is maintained after the topmost element has been removed. 
